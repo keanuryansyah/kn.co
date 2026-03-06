@@ -563,10 +563,8 @@
 
           emailjs.sendForm("service_ljz02tr", "template_obn0ern", this).then(
             function () {
-              // tandai bahwa form sudah dikirim
               sessionStorage.setItem("formSubmitted", "true");
 
-              // redirect ke halaman thank you
               window.location.href = "thankyou.html";
             },
 
