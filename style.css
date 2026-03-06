@@ -735,6 +735,7 @@ textarea {
 #form-status {
   margin-top: 1rem;
   font-size: 0.9rem;
+  display: none;
 }
 
 .btn-contact {
