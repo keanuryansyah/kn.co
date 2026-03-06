@@ -995,3 +995,9 @@ textarea {
     gap: 1rem;
   }
 }
+
+@media (max-width: 375px) {
+  .hero-btn {
+    flex-direction: column;
+  }
+}
