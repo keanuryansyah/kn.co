@@ -928,7 +928,7 @@ textarea {
   .sec-hero-content {
     height: auto;
     grid-template-columns: 1fr;
-    padding-top: 9rem;
+    padding-top: 4.5rem;
     padding-bottom: 9rem;
   }
 
