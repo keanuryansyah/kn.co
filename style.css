@@ -945,6 +945,12 @@ textarea {
     grid-template-columns: repeat(1, 1fr);
   }
 
+  .stest-row-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
   .sprice-row-2 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -964,6 +970,12 @@ textarea {
 
   .sheroc-col-2 {
     justify-content: end;
+  }
+
+  .stest-row-2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
   }
 }
 
