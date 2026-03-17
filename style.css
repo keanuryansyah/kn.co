@@ -62,7 +62,7 @@ section,
 }
 
 .btn-transparent {
-  border: 2px solid var(--col-4);
+  border: 2px solid var(--col-1);
   color: var(--col-1);
 }
 
