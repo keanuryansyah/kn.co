@@ -561,29 +561,31 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <script>
-      (function () {
-        emailjs.init("3tG2mEwSM9YElnoAV");
-      })();
-
       document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
-          emailjs.sendForm("service_ljz02tr", "template_obn0ern", this).then(
-            function () {
-              sessionStorage.setItem("formSubmitted", "true");
+      const name = document.querySelector('input[name="name"]').value;
+      const email = document.querySelector('input[name="email"]').value;
+      const message = document.querySelector('textarea[name="message"]').value;
 
-              window.location.href = "thankyou.html";
-            },
+      const phoneNumber = "6281234567890"; // ganti dengan nomor WA kamu (pakai kode negara, tanpa +)
 
-            function (error) {
-              alert("Failed to send message. Please try again.");
+      const text = `Hello, saya tertarik dengan jasa website Anda.
 
-              console.log(error);
-            },
-          );
-        });
+Name: ${name}
+Email: ${email}
+
+Project Details:
+${message}`;
+
+      const encodedText = encodeURIComponent(text);
+
+      const url = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+      window.open(url, "_blank");
+    });
 
       document.querySelector(".burger-menu").addEventListener("click", () => {
         document.querySelector(".burger-menu").classList.toggle("clicked");
