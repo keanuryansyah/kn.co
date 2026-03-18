@@ -635,8 +635,7 @@ li {
 ======================= */
 @media (max-width: 992px) {
   .sprice-row-2 {
-    grid-template-columns: 1fr; /* 1 kolom di HP */
-    gap: 4rem;
+    grid-template-columns: 1fr;
   }
   
   .card-pricing-wr.featured {
