@@ -508,146 +508,143 @@ li {
 }
 
 /* =======================
-   PRICING SECTION CLEANUP
+   PRICING SECTION
 ======================= */
 #sec-pricing {
   background: #f8f8f6;
-  padding: 60px 0;
-  height: auto !important; /* Paksa tinggi mengikuti konten */
-  min-height: auto !important;
-  overflow: visible !important;
+  position: relative;
+  /* Agar section-height tidak memotong konten di mobile */
+  height: auto !important; 
+  min-height: 100vh; 
+  padding: 80px 0;
 }
 
 .sec-pricing-content {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  width: 100%;
+  gap: 3rem;
 }
 
 .sprice-row-1 {
   display: flex;
   align-items: center;
+  gap: 3rem;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
 }
 
-/* GRID SYSTEM - ANTI GEPENG */
+/* container grid */
 .sprice-row-2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 1rem;
-  align-items: stretch; /* Biar kartu sama tinggi */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+  align-items: stretch;
 }
 
 /* =======================
-   CARD FIX
+   CARD (STYLE TETAP SAMA)
 ======================= */
-.card-pricing-wr {
-  display: flex;
-  height: 100%;
-}
-
 .card-pricing {
   background: white;
-  padding: 2.5rem 1.8rem;
-  border-radius: 8px;
+  padding: 3rem 2.5rem;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 2rem;
+  position: relative;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.35s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  height: 100%; /* Biar kotak sama tinggi */
 }
 
 .card-pricing:hover {
-  transform: translateY(-8px);
+  transform: translateY(-14px);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* FEATURED CARD SCALE */
+.card-pricing-wr.featured {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.card-pricing-wr.featured .card-pricing {
+  border: 2px solid var(--col-1);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.15);
+}
+
+/* Popular Badge */
+.card-pricing-wr.featured .card-pricing::before {
+  content: "Most Popular";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--col-3);
+  color: white;
+  font-size: 0.7rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
 }
 
 /* =======================
-   LIST FEATURES (SOLUSI OVERFLOW)
+   FEATURES (FIX OVERFLOW SAJA)
 ======================= */
 .price-features {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 14px; /* Jarak antar list */
-  flex-grow: 1; /* Dorong tombol ke bawah */
+  gap: 0.8rem;
+  flex-grow: 1; /* Mendorong tombol CTA ke bawah */
 }
 
 .price-features li {
-  display: flex !important;    /* WAJIB: Agar box membungkus teks */
-  align-items: flex-start;     /* Titik tetap di atas baris pertama */
-  gap: 12px;                   /* Jarak titik ke teks */
+  /* INI KUNCI FIX OVERFLOW */
+  display: flex !important;    /* Kotak biru akan membungkus teks */
+  align-items: flex-start;     /* Bullet tetap di baris pertama */
+  gap: 12px;                   /* Jarak bullet ke teks */
+  
+  position: relative;
   font-size: 0.95rem;
-  line-height: 1.5;            /* Tinggi baris yang lega */
-  color: #333;
-  height: auto !important;     /* HAPUS limit tinggi baris */
-  width: 100%;
+  line-height: 1.5;            /* Biar teks panjang rapi */
+  height: auto !important;     /* Anti-gepeng */
 }
 
-/* BIKIN BULLET BARU TANPA ABSOLUTE */
+/* Style Bullet (Tetap pake var col-3) */
 .price-features li::before {
   content: "";
-  display: inline-block;
-  min-width: 8px;              /* Lebar titik */
-  height: 8px;                 /* Tinggi titik */
-  background-color: #da644a;   /* Warna coklat/merahmu */
+  display: block;
+  min-width: 7px;              /* Ukuran persis seperti awal */
+  height: 7px;
+  background: var(--col-3);
   border-radius: 50%;
-  margin-top: 6px;             /* Atur posisi titik biar lurus teks */
-  flex-shrink: 0;              /* Titik gak boleh gepeng kalau teks panjang */
-}
-
-/* Hilangkan style bullet yang lama agar tidak double */
-.price-features li::after { display: none; } 
-
-/* =======================
-   TEXT & BUTTONS
-======================= */
-.price-header h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-
-.price { 
-  font-size: 2rem; 
-  font-weight: 700; 
-  color: #da644a; 
-  margin-bottom: 0.8rem; 
-}
-
-.price-header span {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  opacity: 0.7;
-  display: block;
-}
-
-.btn-green {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 14px;
-  background: #2ecc71; /* Sesuaikan warna hijaumu */
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
+  margin-top: 7px;             /* Posisi persis seperti awal */
+  flex-shrink: 0;              /* Anti-gepeng */
 }
 
 /* =======================
-   MOBILE RESPONSIVE
+   HEADER & TEXT
 ======================= */
-@media (max-width: 768px) {
+.price-header h3 { font-size: 1.5rem; }
+.price { font-size: 2rem; font-weight: 700; color: var(--col-3); }
+.price-header span { font-size: 0.85rem; opacity: 0.6; line-height: 1.4; display: block; }
+
+/* =======================
+   RESPONSIVE (HP)
+======================= */
+@media (max-width: 992px) {
   .sprice-row-2 {
-    grid-template-columns: 1fr; /* Paksa 1 kolom di HP */
+    grid-template-columns: 1fr; /* 1 kolom di HP */
+    gap: 4rem;
   }
   
-  .card-pricing {
-    padding: 2rem 1.5rem; /* Padding lebih kecil di HP */
+  .card-pricing-wr.featured {
+    transform: scale(1); /* Di HP jangan di-scale biar tidak tabrakan */
   }
-  
+
   .sprice-row-1 {
     flex-direction: column;
     text-align: center;
