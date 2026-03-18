@@ -513,10 +513,8 @@ li {
 #sec-pricing {
   background: #f8f8f6;
   position: relative;
-  /* Agar section-height tidak memotong konten di mobile */
   height: auto !important; 
   min-height: 100vh; 
-  padding: 80px 0;
 }
 
 .sec-pricing-content {
