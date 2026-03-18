@@ -535,7 +535,6 @@ li {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 /* =======================
@@ -573,9 +572,9 @@ li {
    FEATURED CARD
 ======================= */
 
-.card-pricing-wr.featured {
+/* .card-pricing-wr.featured {
   transform: scale(1.08);
-}
+} */
 
 .card-pricing-wr.featured .card-pricing {
   border: 2px solid var(--col-1);
