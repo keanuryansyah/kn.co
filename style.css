@@ -532,9 +532,9 @@ li {
 /* container */
 
 .sprice-row-2 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
 
